@@ -1,15 +1,15 @@
 <h1 align="center">
   <br>
-  <a href="http://theboring.name"><img src="https://framerusercontent.com/images/RFK4vs0kn8pRMuOO58JeyoemXA.png?scale-down-to=256" alt="Boring Notch" width="150"></a>
+  <a href="https://github.com/techisat415/knotch.knotch"><img src="https://framerusercontent.com/images/RFK4vs0kn8pRMuOO58JeyoemXA.png?scale-down-to=256" alt="KnotchKnotch" width="150"></a>
   <br>
-  Boring Notch
+  KnotchKnotch
   <br>
 </h1>
 
 
 <p align="center">
   <a title="Crowdin" target="_blank" href="https://crowdin.com/project/boring-notch"><img src="https://badges.crowdin.net/boring-notch/localized.svg"></a>
-  <img src="https://github.com/TheBoredTeam/boring.notch/actions/workflows/cicd.yml/badge.svg" alt="TheBoringNotch Build & Test" style="margin-right: 10px;" />
+  <img src="https://github.com/TheBoredTeam/boring.notch/actions/workflows/cicd.yml/badge.svg" alt="Upstream BoringNotch CI" style="margin-right: 10px;" />
   <a href="https://discord.gg/c8JXA7qrPm">
     <img src="https://dcbadge.limes.pink/api/server/https://discord.gg/c8JXA7qrPm?style=flat" alt="Discord Badge" />
   </a>
@@ -21,9 +21,7 @@
 <p align="center">
   <a href="https://trendshift.io/repositories/14815?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-14815" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/14815" alt="TheBoredTeam%2Fboring.notch |    Trendshift" width="250" height="55"/></a>
 </p>
-<!--Welcome to **Boring.Notch**, the coolest way to make your MacBook's notch the star of the show! Forget about those boring status bars—our notch turns into a dynamic music control center, complete with a snazzy visualizer and all the music controls you need. It's like having a mini concert right at the top of your screen! -->
-
-Say hello to **Boring Notch**, the coolest way to make your MacBook’s notch the star of the show! Say goodbye to boring status bars: with Boring Notch, your notch transforms into a dynamic music control center, complete with a vibrant visualizer and all the essential music controls you need. But that’s just the start! Boring Notch also offers calendar integration, a handy file shelf with AirDrop support, a complete MacOS HUD replacement and more!
+KnotchKnotch is an independent product built from [BoringNotch](https://github.com/TheBoredTeam/boring.notch). It transforms your MacBook’s notch into a dynamic music control center with a visualizer, calendar integration, file shelf, system HUD controls, and more. The shelf supports AirDrop and can open LocalSend with dropped files preloaded for device selection and transfer.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2d5f69c1-6e7b-4bc2-a6f1-bb9e27cf88a8" alt="Demo GIF" />
@@ -52,12 +50,12 @@ Say hello to **Boring Notch**, the coolest way to make your MacBook’s notch th
 
 ### Option 1: Download and Install Manually
 
-<a href="https://github.com/TheBoredTeam/boring.notch/releases/latest/download/boringNotch.dmg" target="_self"><img width="200" src="https://github.com/user-attachments/assets/e3179be1-8416-4b8a-b417-743e1ecc67d6" alt="Download for macOS" /></a>
+<a href="https://github.com/techisat415/knotch.knotch/releases/latest/download/KnotchKnotch.dmg" target="_self"><img width="200" src="https://github.com/user-attachments/assets/e3179be1-8416-4b8a-b417-743e1ecc67d6" alt="Download for macOS" /></a>
 
-Once downloaded, open the `.dmg` and move **Boring Notch** to your `/Applications` folder.
+Once downloaded, open the `.dmg` and move **KnotchKnotch** to your `/Applications` folder.
 
 > [!IMPORTANT]
-> We don't have an Apple Developer account (yet 👀), so macOS will warn you that Boring Notch is from an unidentified developer on first launch. This is expected behavior.
+> If the build is not signed with a notarized Developer ID, macOS may warn that KnotchKnotch is from an unidentified developer on first launch.
 >
 > You'll need to bypass this before the app will open. You only need to do this once. Use one of the methods below.
 
@@ -67,10 +65,10 @@ Once downloaded, open the `.dmg` and move **Boring Notch** to your `/Application
 
 This is the quickest and easiest method. It only requires a single command and works consistently for all users. System Settings can sometimes fail and won't work for non-admin users.
 
-After moving Boring Notch to your Applications folder, run:
+After moving KnotchKnotch to your Applications folder, run:
 
 ```bash
-xattr -dr com.apple.quarantine "/Applications/Boring Notch.app"
+xattr -dr com.apple.quarantine "/Applications/KnotchKnotch.app"
 ```
 
 Then open the app normally.
@@ -85,7 +83,7 @@ Then open the app normally.
 1. Try to open the app — you'll see a security warning.
 2. Click **OK** to dismiss it.
 3. Open **System Settings** > **Privacy & Security**.
-4. Scroll to the bottom and click **Open Anyway** next to the Boring Notch warning.
+4. Scroll to the bottom and click **Open Anyway** next to the KnotchKnotch warning.
 5. Confirm if prompted.
 
 ---
@@ -141,13 +139,13 @@ brew install --cask TheBoredTeam/boring-notch/boring-notch
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/TheBoredTeam/boring.notch.git
-   cd boring.notch
+   git clone https://github.com/techisat415/knotch.knotch.git
+   cd knotch.knotch
    ```
 
 2. **Open the Project in Xcode**:
    ```bash
-   open boringNotch.xcodeproj
+   open KnotchKnotch.xcodeproj
    ```
 
 3. **Build and Run**:
@@ -187,13 +185,13 @@ We would like to express our gratitude to the authors and maintainers of the ope
 
 ## Notable Projects
 - **[MediaRemoteAdapter](https://github.com/ungive/mediaremote-adapter)** –  An open-source project that allowed us to use the Now Playing source in macOS 15.4+
-- **[NotchDrop](https://github.com/Lakr233/NotchDrop)** – An open-source project that has been instrumental in developing the first version of the "Shelf" feature in Boring Notch.
+- **[NotchDrop](https://github.com/Lakr233/NotchDrop)** – An open-source project that has been instrumental in developing the first version of the "Shelf" feature in BoringNotch.
 
-For a full list of licenses and attributions, please see the [Third-Party Licenses](./THIRD_PARTY_LICENSES.md) file.
+KnotchKnotch retains the upstream project’s license and required attribution. See [BoringNotch](https://github.com/TheBoredTeam/boring.notch) and the [license](./LICENSE); third-party notices are in [Third-Party Licenses](./THIRD_PARTY_LICENSES).
 
 ### Icon credits: [@maxtron95](https://github.com/maxtron95)
 ### Website credits: [@himanshhhhuv](https://github.com/himanshhhhuv)
 
 - **SwiftUI**: For making us look like coding wizards.
-- **You**: For being awesome and checking out **boring.notch**!
+- **You**: For being awesome and checking out **KnotchKnotch**!
 
