@@ -6,26 +6,30 @@
 import SwiftUI
 
 struct SystemView: View {
+    @EnvironmentObject private var vm: BoringViewModel
     @StateObject private var monitor = SystemMonitorService()
 
     var body: some View {
-        VStack(spacing: 10) {
-            Image(systemName: "chart.xyaxis.line")
-                .symbolRenderingMode(.hierarchical)
-                .imageScale(.large)
-
-            Text("System")
-                .font(.system(.title3, design: .rounded))
-                .fontWeight(.medium)
-
-            Text(String(describing: monitor.snapshot))
-                .font(.caption2)
-                .monospaced()
-                .textSelection(.enabled)
-        }
-        .foregroundStyle(.gray)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .onAppear { monitor.start() }
-        .onDisappear { monitor.stop() }
+        SystemOverview(snapshot: monitor.snapshot, cpuHistory: monitor.cpuHistory)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .onAppear {
+                print("[SystemView] start")
+                if vm.notchState == .open {
+                    monitor.start()
+                }
+            }
+            .onDisappear {
+                print("[SystemView] stop")
+                monitor.stop()
+            }
+            .onChange(of: vm.notchState) { _, state in
+                if state == .open {
+                    print("[SystemView] start")
+                    monitor.start()
+                } else {
+                    print("[SystemView] stop")
+                    monitor.stop()
+                }
+            }
     }
 }
