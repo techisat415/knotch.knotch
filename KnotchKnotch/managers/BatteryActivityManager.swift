@@ -16,7 +16,7 @@ class BatteryActivityManager {
 
     private var batterySource: CFRunLoopSource?
     private var observers: [(BatteryEvent) -> Void] = []
-    private var previousBatteryInfo: BatteryInfo?
+    private var previousBatteryInfo: ActivityBatteryInfo?
     private var notificationQueue: [BatteryEvent] = []
     private var isProcessingNotifications = false
 
@@ -36,7 +36,7 @@ class BatteryActivityManager {
         case batteryParameterMissing(String)
     }
 
-    private let defaultBatteryInfo = BatteryInfo(
+    private let defaultBatteryInfo = ActivityBatteryInfo(
         isPluggedIn: false,
         isCharging: false,
         currentCapacity: 0,
@@ -194,10 +194,10 @@ class BatteryActivityManager {
     
     /// Initializes the battery information when the manager starts
     /// - Returns: Current battery information
-    func initializeBatteryInfo() -> BatteryInfo {
+    func initializeBatteryInfo() -> ActivityBatteryInfo {
         previousBatteryInfo = getBatteryInfo()
         guard let batteryInfo = previousBatteryInfo else {
-            return BatteryInfo(
+            return ActivityBatteryInfo(
                 isPluggedIn: false,
                 isCharging: false,
                 currentCapacity: 0,
@@ -211,7 +211,7 @@ class BatteryActivityManager {
 
     /// Get the current battery information
     /// - Returns: The current battery information
-    private func getBatteryInfo() -> BatteryInfo {
+    private func getBatteryInfo() -> ActivityBatteryInfo {
         do {
             // Get power source information
             guard let snapshot = IOPSCopyPowerSourcesInfo()?.takeRetainedValue() else {
@@ -247,7 +247,7 @@ class BatteryActivityManager {
             }
             
             // Create battery info with the extracted parameters
-            var batteryInfo = BatteryInfo(
+            var batteryInfo = ActivityBatteryInfo(
                 isPluggedIn: powerSource == kIOPSACPowerValue,
                 isCharging: isCharging,
                 currentCapacity: currentCapacity,
@@ -312,7 +312,7 @@ class BatteryActivityManager {
 }
 
 /// Struct to hold battery information
-struct BatteryInfo {
+struct ActivityBatteryInfo {
     var isPluggedIn: Bool
     var isCharging: Bool
     var currentCapacity: Float

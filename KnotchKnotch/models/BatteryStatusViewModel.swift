@@ -106,14 +106,14 @@ class BatteryStatusViewModel: ObservableObject {
 
     /// Updates the battery information with the given BatteryInfo instance
     /// - Parameter batteryInfo: The BatteryInfo instance containing the battery data
-    private func updateBatteryInfo(_ batteryInfo: BatteryInfo) {
+    private func updateBatteryInfo(_ batteryInfo: ActivityBatteryInfo) {
         withAnimation {
-            self.levelBattery = batteryInfo.currentCapacity
+            self.levelBattery = Float(batteryInfo.currentCapacity)
             self.isPluggedIn = batteryInfo.isPluggedIn
             self.isCharging = batteryInfo.isCharging
             self.isInLowPowerMode = batteryInfo.isInLowPowerMode
             self.timeToFullCharge = batteryInfo.timeToFullCharge
-            self.maxCapacity = batteryInfo.maxCapacity
+            self.maxCapacity = Float(batteryInfo.maxCapacity)
             self.statusText = batteryInfo.isPluggedIn ? "Plugged In" : "Unplugged"
         }
     }
